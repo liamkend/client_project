@@ -1,0 +1,89 @@
+@media screen and (min-width: 700px) {
+    :root {
+        --max-width: 60rem;
+    }
+
+    .header-inner {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 1.5rem;
+    }
+
+    nav ol {
+        justify-content: flex-end;
+    }
+
+    .intro-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 1.25rem;
+        align-items: start;
+    }
+
+    .home-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+    }
+
+    .home-layout section {
+        margin-bottom: 0;
+    }
+
+    .results-header-row {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 1.25rem;
+        align-items: start;
+    }
+
+    .season-card-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .race-card {
+        margin-top: 0;
+        height: 100%;
+    }
+
+    .race-card img,
+    .no-image {
+        aspect-ratio: 4 / 3;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    :root {
+        --max-width: 76rem;
+    }
+
+    body {
+        font-size: 1.05rem;
+    }
+
+    .site-header,
+    main,
+    .site-footer {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .home-layout {
+        grid-template-columns: 1.35fr 1fr;
+    }
+
+    .home-layout section:first-child {
+        grid-row: span 2;
+    }
+
+    .results-header-row {
+        grid-template-columns: 1.8fr 1fr;
+    }
+
+    .season-card-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}

@@ -1,0 +1,507 @@
+:root {
+    color-scheme: light dark;
+
+    --bg-color: #f6f8fc;
+    --surface-color: #ffffff;
+    --surface-accent: #eef3ff;
+    --text-color: #14213d;
+    --muted-color: #4a5568;
+    --border-color: #cfd8e3;
+
+    --accent-color: #123c73;
+    --accent-strong: #0b2545;
+    --highlight-color: #f4c542;
+
+    --shadow-color: rgba(20, 33, 61, 0.12);
+
+    --max-width: 38rem;
+
+    --radius-small: 0.5rem;
+    --radius-medium: 1rem;
+    --radius-large: 1.25rem;
+
+    --space-xs: 0.4rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+
+    --transition-fast: 0.2s ease;
+
+    --font-stack: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-stack);
+    line-height: 1.6;
+}
+
+.site-header,
+main,
+.site-footer {
+    width: min(100%, var(--max-width));
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.skip-link {
+    position: absolute;
+    top: 0;
+    left: -1000px;
+    z-index: 1000;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 0 0 var(--radius-small) var(--radius-small);
+    background-color: var(--accent-strong);
+    color: #ffffff;
+}
+
+.skip-link:focus {
+    left: 1rem;
+}
+
+a:focus,
+button:focus,
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+    outline: 3px solid var(--highlight-color);
+    outline-offset: 3px;
+}
+
+summary:focus {
+    outline: none;
+}
+
+.race-card:focus-within {
+    outline: 3px solid var(--highlight-color);
+    outline-offset: 3px;
+}
+
+.eyebrow {
+    margin-bottom: var(--space-xs);
+    color: var(--muted-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+h1 {
+    margin-bottom: var(--space-md);
+    font-size: clamp(2rem, 6vw, 2.7rem);
+    line-height: 1.1;
+}
+
+h2 {
+    margin-bottom: var(--space-sm);
+    font-size: clamp(1.35rem, 4.5vw, 1.85rem);
+    line-height: 1.2;
+}
+
+h3 {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    line-height: 1.3;
+}
+
+p + p {
+    margin-top: 0.9rem;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+    background-color: rgba(246, 248, 252, 0.96);
+    backdrop-filter: blur(8px);
+}
+
+main {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-xl);
+}
+
+.site-footer {
+    padding-bottom: var(--space-xl);
+    color: var(--muted-color);
+}
+
+section {
+    margin-bottom: var(--space-lg);
+    padding: var(--space-lg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-large);
+    box-shadow: 0 8px 24px var(--shadow-color);
+    background-color: var(--surface-color);
+    animation: fade-up 0.65s ease both;
+}
+
+.hero-card {
+    background: linear-gradient(180deg, var(--surface-color) 0%, var(--surface-accent) 100%);
+}
+
+.section-intro {
+    max-width: 62ch;
+}
+
+nav ol,
+.year-links,
+.results-tools {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav ol {
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.year-links,
+.results-tools {
+    gap: 0.75rem;
+    margin-top: var(--space-md);
+}
+
+nav a,
+.button-link,
+.year-chip,
+.tool-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    text-align: center;
+}
+
+nav a {
+    padding: 0.65rem 0.95rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--surface-color);
+    color: var(--accent-strong);
+    transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+nav a.current,
+nav a[aria-current="page"] {
+    border-color: var(--accent-color);
+    background-color: var(--accent-color);
+    color: #ffffff;
+}
+
+.button-row {
+    margin-top: var(--space-md);
+}
+
+.button-link,
+.tool-button {
+    border: 2px solid var(--accent-color);
+    background-color: var(--accent-color);
+    color: #ffffff;
+    transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.button-link:hover,
+.button-link:focus,
+.tool-button:hover,
+.tool-button:focus {
+    transform: translateY(-1px);
+    border-color: var(--accent-strong);
+    background-color: var(--accent-strong);
+    color: #ffffff;
+}
+
+.year-chip {
+    border: 1px solid var(--border-color);
+    background-color: var(--surface-accent);
+    color: var(--accent-strong);
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.year-chip:hover,
+.year-chip:focus,
+nav a:hover,
+nav a:focus {
+    transform: translateY(-1px);
+    color: var(--accent-strong);
+}
+
+.tool-button.is-active {
+    border-color: var(--highlight-color);
+    background-color: var(--highlight-color);
+    color: #2f2500;
+}
+
+.tool-button.is-active:hover,
+.tool-button.is-active:focus {
+    border-color: #ddae15;
+    background-color: #ddae15;
+    color: #2f2500;
+}
+
+a {
+    color: var(--accent-color);
+}
+
+a:hover,
+a:focus {
+    color: var(--accent-strong);
+}
+
+.stack-list {
+    padding-left: 1.25rem;
+    list-style: disc;
+}
+
+.stack-list li + li {
+    margin-top: 0.4rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.stat-card {
+    padding: var(--space-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-medium);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.race-card {
+    margin-top: var(--space-md);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-medium);
+    background-color: var(--surface-color);
+    box-shadow: 0 6px 18px var(--shadow-color);
+    animation: fade-up 0.7s ease both;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.race-card:hover,
+.race-card:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px var(--shadow-color);
+}
+
+.race-card summary {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 44px;
+    padding: var(--space-md);
+    cursor: pointer;
+    list-style: none;
+    background-color: var(--surface-accent);
+    transition: background-color var(--transition-fast);
+}
+
+.race-card summary::-webkit-details-marker {
+    display: none;
+}
+
+.race-card summary::after {
+    content: "+";
+    position: absolute;
+    top: 50%;
+    right: var(--space-md);
+    transform: translateY(-50%);
+    color: var(--accent-color);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.race-card[open] summary {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.race-card[open] summary::after {
+    content: "−";
+}
+
+.race-card[open]:not(.pr-card):not(.sr-card) summary {
+    background-color: #dcecff;
+}
+
+.race-title {
+    display: block;
+    margin-right: 2rem;
+    padding-right: 1rem;
+    font-weight: 700;
+}
+
+.race-meta {
+    display: block;
+    margin-top: 0.2rem;
+    padding-right: 2rem;
+    color: var(--muted-color);
+    font-size: 0.95rem;
+}
+
+.race-card img,
+.no-image {
+    display: block;
+    width: calc(100% - 2rem);
+    aspect-ratio: 1 / 1;
+    margin: var(--space-md) auto 0 auto;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-medium);
+    background-color: #e8edf5;
+    object-fit: cover;
+}
+
+.no-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+    color: var(--muted-color);
+    text-align: center;
+}
+
+.race-card p {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+}
+
+.race-card p:last-child {
+    padding-bottom: var(--space-md);
+}
+
+.pr-card,
+.sr-card {
+    border-left-width: 0.35rem;
+    border-left-style: solid;
+}
+
+.pr-card {
+    border-left-color: #f4c542;
+}
+
+.sr-card {
+    border-left-color: #c0c7d1;
+}
+
+.pr-card summary,
+.race-card[open].pr-card {
+    background-color: #fff4c6;
+}
+
+.race-card[open].pr-card summary {
+    background-color: #ffe89a;
+}
+
+.sr-card summary,
+.race-card[open].sr-card {
+    background-color: #e9edf3;
+}
+
+.race-card[open].sr-card summary {
+    background-color: #d7dee8;
+}
+
+.record-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.4rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    vertical-align: middle;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    line-height: 1.2;
+}
+
+.pr-badge {
+    background-color: #f4c542;
+    color: #2f2500;
+}
+
+.sr-badge {
+    background-color: #c0c7d1;
+    color: #1f2937;
+}
+
+.is-hidden {
+    display: none;
+}
+
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #0b1320;
+        --surface-color: #132033;
+        --surface-accent: #1a2b44;
+        --text-color: #f3f7ff;
+        --muted-color: #c2cede;
+        --border-color: #30445f;
+        --accent-color: #8ab4ff;
+        --accent-strong: #b8d1ff;
+        --highlight-color: #ffd166;
+        --shadow-color: rgba(0, 0, 0, 0.35);
+    }
+
+    .site-header {
+        background-color: rgba(11, 19, 32, 0.94);
+    }
+
+    nav a.current,
+    nav a[aria-current="page"],
+    .button-link,
+    .tool-button {
+        color: #0b1320;
+    }
+
+    .tool-button.is-active {
+        color: #2f2500;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    section,
+    .race-card {
+        animation: none;
+    }
+
+    nav a,
+    .button-link,
+    .year-chip,
+    .tool-button,
+    .race-card {
+        transition: none;
+    }
+}
